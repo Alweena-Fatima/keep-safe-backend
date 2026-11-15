@@ -3,8 +3,7 @@ package com.keepsafe.backend.repository;
 import com.keepsafe.backend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-// This repository handles database operations for users.
-// JpaRepository provides save(), findById(), findAll(), and deleteById(),
-// so we don't have to write these methods ourselves. Long is the user ID type.
+
 public interface UserRepository extends JpaRepository<User, Long> {
+    boolean existsByEmail(String email); //we need to check if a user with the same email already exists in the database. This method will be used in the registration process to prevent duplicate accounts.
 }
