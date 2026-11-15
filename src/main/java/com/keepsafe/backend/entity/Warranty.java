@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import lombok.*;
+@Setter 
+@Getter 
 @Entity
 @Table(name = "warranties")
 public class Warranty {

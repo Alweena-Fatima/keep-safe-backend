@@ -9,6 +9,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import lombok.*;
+@Setter 
+@Getter 
 @Entity
 @Table(name="products")
 public class Product {

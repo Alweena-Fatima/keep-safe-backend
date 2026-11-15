@@ -5,6 +5,9 @@ import java.util.List;
 
 import jakarta.persistence.*;
 
+import lombok.*;
+@Setter 
+@Getter 
 @Entity
 @Table(name = "expiry_reminders")
 public class ExpiryReminder {
