@@ -6,7 +6,13 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+
+import lombok.*;
+@Setter 
+@Getter 
 @Entity
 @Table(name="products")
 public class Product {
@@ -38,5 +44,17 @@ public class Product {
 
     @Column(name = "updated_at", insertable = false, updatable = false)
     private LocalDateTime updatedAt;
+    //now we can have our product entity know about the invoices, expiry records, and warranties associated with it. This is done by adding a one-to-many relationship in the Product entity for each of these entities.
+//    Why mappedBy = "product"?
+//
+//            Because ExpiryRecord.java already has:
+    @OneToMany(mappedBy = "product")
+    private List<ExpiryRecord> expiryRecords = new ArrayList<>();
+
+    @OneToOne(mappedBy = "product")
+    private Warranty warranty;
+
+    @OneToMany(mappedBy = "product")
+    private List<Invoice> invoices = new ArrayList<>();
 
 }

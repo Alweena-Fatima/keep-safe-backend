@@ -2,9 +2,13 @@
 package com.keepsafe.backend.entity;
 
 import jakarta.persistence.*;
+
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+import lombok.*;
+@Setter 
+@Getter 
 @Entity
 @Table(name = "warranty_claims")
 public class WarrantyClaim {

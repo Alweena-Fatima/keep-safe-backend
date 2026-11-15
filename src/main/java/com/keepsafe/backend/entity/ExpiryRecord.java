@@ -4,7 +4,9 @@ package com.keepsafe.backend.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-
+import lombok.*;
+@Setter 
+@Getter 
 @Entity
 @Table(name="expiry_records")
 public class ExpiryRecord {
