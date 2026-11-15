@@ -3,6 +3,8 @@ package com.keepsafe.backend.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -26,4 +28,10 @@ public class User {
 
     @Column(name = "updated_at", insertable = false, updatable = false)
     private LocalDateTime updatedAt;
+    //now we can have our user entity know about the notifications, products, invoices, and warranties associated with it. This is done by adding a one-to-many relationship in the User entity for each of these entities.
+    @OneToMany(mappedBy = "user")
+    private List<Product> products = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Notification> notifications = new ArrayList<>();
 }

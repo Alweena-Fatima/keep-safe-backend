@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "warranties")
@@ -32,4 +34,8 @@ public class Warranty {
 
     @Column(name = "updated_at", insertable = false, updatable = false)
     private LocalDateTime updatedAt;
+
+    // A warranty can have multiple claims.
+    @OneToMany(mappedBy = "warranty")
+    private List<WarrantyClaim> claims = new ArrayList<>();
 }
